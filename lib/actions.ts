@@ -112,7 +112,7 @@ export const getProjectDetails = async (id: string) => {
 
   return makeGraphQlRequest(getProjectByIdQuery, { id });
 };
-
+//e
 export const deleteProject = async (id: string, token: string) => {
   client.setHeader("Authorization", `Bearer ${token}`);
 
