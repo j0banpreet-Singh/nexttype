@@ -43,11 +43,11 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
               </Link>
               <Image src="/dot.svg" width={4} height={4} alt="dot" />
               <Link
-                href={`/?category=${projectDetails.category}`}
+                href={`/?category=${projectDetails?.category}`}
                 target="_blank"
                 className="text-primary-purple font-semibold"
               >
-                {projectDetails.category}
+                {projectDetails?.category}
               </Link>
             </div>
           </div>
