@@ -100,11 +100,11 @@ export const createProject = async (
   }
 };
 
-export const fetchAllProjects = (category?: string | null, endCursor?: string | null) => {
+export const fetchAllProjects = (category?: string | null, endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
-  return  makeGraphQlRequest(projectsQuery, { category, endCursor });
-};
 
+  return makeGraphQlRequest(projectsQuery, { category, endcursor });
+};
 export const getProjectDetails = async (id: string) => {
   client.setHeader("x-api-key", apiKey);
 
