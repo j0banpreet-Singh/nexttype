@@ -28,10 +28,8 @@ export const dynamicParams = true;
 export const revalidate = 0;
 
 const Home = async ({ searchParams: { category, endCursor } }: Props) => {
-  console.log(endCursor);
   const data = (await fetchAllProjects(category, endCursor)) as ProjectSearch;
 
-  console.log("requesting...", data.projectSearch.edges.length);
   const projectsToDisplay = data?.projectSearch?.edges || [];
 
   if (projectsToDisplay.length === 0) {

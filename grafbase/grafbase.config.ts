@@ -1,5 +1,4 @@
 import { g, config, auth } from '@grafbase/sdk';
-console.log(g.env('NEXTAUTH_SECRET'))
 // @ts-ignore
 const User = g.model('User', {
   name: g.string().length({ min: 2, max: 100 }),

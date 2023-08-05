@@ -31,7 +31,6 @@ const makeGraphQlRequest = async (query: string, variables = {}) => {
   try {
     return await client.request(query, variables);
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -71,7 +70,6 @@ export const uploadImage = async (path: string) => {
     });
     return response.json();
   } catch (error) {
-    console.log("error occured");
     throw error;
   }
 };
@@ -98,13 +96,12 @@ export const createProject = async (
       return makeGraphQlRequest(createProjectMutation, variables);
     }
   } catch (error) {
-    console.log("failed creating project");
+    throw error
   }
 };
 
 export const fetchAllProjects = (category?: string | null, endCursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
-console.log("ewnd",endCursor)
   return  makeGraphQlRequest(projectsQuery, { category, endCursor });
 };
 
@@ -129,7 +126,6 @@ export const getAllUserProjects = async(id:string)=>{
 export const updateProject = async(form:FormState,projectId:string,token:string)=>{
   client.setHeader('Authorization',`Bearer ${token}`)
   function isBase64DataURL(value: string) {
-    console.log("testing...")
     const base64Regex = /^data:image\/[a-z]+;base64,/;
     return base64Regex.test(value);
   }

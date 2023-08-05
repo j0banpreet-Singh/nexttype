@@ -42,7 +42,6 @@ const ProjectForm = ({ session, type ,project}: props) => {
 
     reader.onload = () => {
       const result = reader.result as string;
-      console.log(result)
       handleStateChange("image", result);
     };
   };

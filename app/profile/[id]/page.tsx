@@ -7,7 +7,6 @@ import ProfilePage from "@/components/ProfilePage";
 const Profile = async ({ params: { id } }: { params: { id: string } }) => {
   const data = (await getAllUserProjects(id)) as { user: UserProfile };
 
-  console.log(data.user.avatarUrl)
   if (!data?.user)
     return <p className="no-result-text">failed to fetch user</p>;
 

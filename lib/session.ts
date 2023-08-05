@@ -53,7 +53,6 @@ export const authOptions: NextAuthOptions = {
 
         return newSession;
       } catch (error: any) {
-        console.error("Error retrieving user data: ", error.message);
         return session;
       }
     },
@@ -64,13 +63,11 @@ export const authOptions: NextAuthOptions = {
         const userExists = await getUser(user?.email as string) as { user?: UserProfile }
 
         if (!userExists.user) {
-          console.log("trying to create user...")
           await createUser(user.name as string, user.email as string, user.image as string)
         }
 
         return true;
       } catch (error: any) {
-        console.log("Error checking if user exists: ", error.message);
         return false;
       }
     },
