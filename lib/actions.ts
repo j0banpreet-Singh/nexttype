@@ -11,7 +11,6 @@ import {
 } from "@/graphql";
 import { json } from "stream/consumers";
 import { FormState, ProjectForm } from "@/common.types";
-import { categoryFilters } from "@/constant";
 
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
@@ -103,9 +102,8 @@ export const createProject = async (
 
 export const fetchAllProjects = (category?: string | null, endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
-  const categories = category == null ? categoryFilters : [category];
 
-  return makeGraphQlRequest(projectsQuery, { categories, endcursor });
+  return makeGraphQlRequest(projectsQuery, { category, endcursor });
 };
 export const getProjectDetails = async (id: string) => {
   client.setHeader("x-api-key", apiKey);
