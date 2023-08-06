@@ -51,6 +51,7 @@ const ProjectForm = ({ session, type ,project}: props) => {
   };
 
   const handleFormSubmit = async (e: FormEvent) => {
+    console.log("submit button")
     e.preventDefault();
     const { token } = await fetchToken();
     setSubmitting(true);
