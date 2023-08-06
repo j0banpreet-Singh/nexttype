@@ -101,12 +101,13 @@ export const createProject = async (
   }
 };
 
-export const fetchAllProjects = (category?: string | null, endCursor?: string | null) => {
+export const fetchAllProjects = (category?: string | null, endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
 
   const categories = category == null ? categoryFilters : [category];
-  return makeGraphQlRequest(projectsQuery, { categories, endCursor });
-};
+
+  return makeGraphQlRequest(projectsQuery, { categories, endcursor });
+}
 
 export const getProjectDetails = async (id: string) => {
   client.setHeader("x-api-key", apiKey);
