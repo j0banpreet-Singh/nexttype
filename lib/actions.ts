@@ -61,17 +61,17 @@ export const createUser = (name: string, email: string, avatarUrl: string) => {
   return makeGraphQlRequest(createUserMutation, variables);
 };
 
-export const uploadImage = async (path: string) => {
+export const uploadImage = async (imagePath: string) => {
   try {
-    const response = await fetch("http://localhost:3000/api/upload", {
+    const response = await fetch(`${serverUrl}/api/upload`, {
       method: "POST",
       body: JSON.stringify({
-        path: path,
+        path: imagePath,
       }),
     });
     return response.json();
-  } catch (error) {
-    throw error;
+  } catch (err) {
+    throw err;
   }
 };
 
