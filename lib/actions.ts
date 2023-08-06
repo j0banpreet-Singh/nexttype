@@ -91,6 +91,7 @@ export const createProject = async (
       return makeGraphQlRequest(createProjectMutation, variables);
     }
   } catch (error) {
+    console.log(error)
     throw error
   }
 };
