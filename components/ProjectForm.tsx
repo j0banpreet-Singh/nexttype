@@ -66,6 +66,7 @@ const ProjectForm = ({ session, type ,project}: props) => {
         router.push("/")
       }
     } catch (error) {
+      console.log(error)
       alert(
         `${type === "create" ? "creating" : "editing"} form failed. Try! Again`
       );
