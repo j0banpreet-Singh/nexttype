@@ -65,6 +65,7 @@ export const uploadImage = async (imagePath: string) => {
   try {
     const response = await fetch(`${serverUrl}/api/upload`, {
       method: "POST",
+      mode: 'no-cors',
       body: JSON.stringify({
         path: imagePath,
       }),
